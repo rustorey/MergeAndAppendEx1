@@ -38,10 +38,18 @@ I have two emails, but the one I check most is: superdawg1978@hotmail.com
 """
 
 # Script (fill in here):
+lines = text.splitlines()
 
-    
+emails = []
+for line in lines:
+    if len(line) > 0:
+        line_parts = line.split(': ')
+        emails.append(line_parts[1])
+
+to_text = ', '.join(emails)
+
 # Output:
-# print(emails)
-# print(to_text)
+print(emails)
+print(to_text)
 
 
