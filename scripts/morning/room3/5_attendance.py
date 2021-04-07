@@ -29,14 +29,24 @@ Read the file into python and make a dict showing whether a person is here (True
 attendance = {'ND': True, 'AG': True, 'BQ': False}
 """ 
 
-# Raw Data: 
+# Raw Data:
+path_to_data = "./data/raw/attendance.txt"
 
 
 # Script (fill in here):
+with open(path_to_data, 'r') as f:
+    text = f.readlines()
+    print('Read text file.')
 
-    
+attendance = {}
+for line in text:
+    parts = line.split(' ')
+    name = parts[0].strip(':')
+    attendance[name] = True if '?' not in parts[1] else False
+
 # Output:
-# print(attendance)
+for person in attendance.items():
+    print(person)
 
 
 
